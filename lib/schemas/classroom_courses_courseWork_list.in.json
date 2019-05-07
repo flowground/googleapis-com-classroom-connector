@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "courseWorkStates": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "COURSE_WORK_STATE_UNSPECIFIED",
+                    "PUBLISHED",
+                    "DRAFT",
+                    "DELETED"
+                ],
+                "type": "string"
+            }
+        },
+        "orderBy": {
+            "type": "string"
+        },
+        "pageSize": {
+            "type": "integer"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        }
+    }
+}

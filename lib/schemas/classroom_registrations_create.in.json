@@ -1,0 +1,110 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "An instruction to Classroom to send notifications from the `feed` to the\nprovided destination.",
+            "properties": {
+                "cloudPubsubTopic": {
+                    "description": "The Cloud Pub/Sub topic that notifications are to be sent to.",
+                    "properties": {
+                        "topicName": {
+                            "description": "The `name` field of a Cloud Pub/Sub\n[Topic](https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#Topic).",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "expiryTime": {
+                    "description": "The time until which the `Registration` is effective.\n\nThis is a read-only field assigned by the server.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "feed": {
+                    "description": "Specification for the class of notifications that Classroom should deliver\nto the destination.",
+                    "properties": {
+                        "courseRosterChangesInfo": {
+                            "description": "Information about a `Feed` with a `feed_type` of `COURSE_ROSTER_CHANGES`.\nThis field must be specified if `feed_type` is `COURSE_ROSTER_CHANGES`.",
+                            "properties": {
+                                "courseId": {
+                                    "description": "The `course_id` of the course to subscribe to roster changes for.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "courseWorkChangesInfo": {
+                            "description": "Information about a `Feed` with a `feed_type` of `COURSE_WORK_CHANGES`.\nThis field must be specified if `feed_type` is `COURSE_WORK_CHANGES`.",
+                            "properties": {
+                                "courseId": {
+                                    "description": "The `course_id` of the course to subscribe to work changes for.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "feedType": {
+                            "description": "The type of feed.",
+                            "enum": [
+                                "FEED_TYPE_UNSPECIFIED",
+                                "DOMAIN_ROSTER_CHANGES",
+                                "COURSE_ROSTER_CHANGES",
+                                "COURSE_WORK_CHANGES"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "registrationId": {
+                    "description": "A server-generated unique identifier for this `Registration`.\n\nRead-only.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "__xgafv": {
+            "type": "string",
+            "enum": [
+                "1",
+                "2"
+            ]
+        }
+    }
+}

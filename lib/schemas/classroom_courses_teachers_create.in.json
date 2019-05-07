@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Teacher of a course.",
+            "properties": {
+                "courseId": {
+                    "description": "Identifier of the course.\n\nRead-only.",
+                    "type": "string"
+                },
+                "profile": {
+                    "description": "Global user information for the teacher.\n\nRead-only.",
+                    "properties": {
+                        "emailAddress": {
+                            "description": "Email address of the user.\n\nRead-only.",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "Identifier of the user.\n\nRead-only.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the user.\n\nRead-only.",
+                            "properties": {
+                                "familyName": {
+                                    "description": "The user's last name.\n\nRead-only.",
+                                    "type": "string"
+                                },
+                                "fullName": {
+                                    "description": "The user's full name formed by concatenating the first and last name\nvalues.\n\nRead-only.",
+                                    "type": "string"
+                                },
+                                "givenName": {
+                                    "description": "The user's first name.\n\nRead-only.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "permissions": {
+                            "description": "Global permissions of the user.\n\nRead-only.",
+                            "items": {
+                                "description": "Global user permission description.",
+                                "properties": {
+                                    "permission": {
+                                        "description": "Permission value.",
+                                        "enum": [
+                                            "PERMISSION_UNSPECIFIED",
+                                            "CREATE_COURSE"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "photoUrl": {
+                            "description": "URL of user's profile photo.\n\nRead-only.",
+                            "type": "string"
+                        },
+                        "verifiedTeacher": {
+                            "description": "Represents whether a G Suite for Education user's domain administrator has\nexplicitly verified them as being a teacher. If the user is not a member of\na G Suite for Education domain, than this field will always be false.\n\nRead-only",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "userId": {
+                    "description": "Identifier of the user.\n\nWhen specified as a parameter of a request, this identifier can be one of\nthe following:\n\n* the numeric identifier for the user\n* the email address of the user\n* the string literal `\"me\"`, indicating the requesting user",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

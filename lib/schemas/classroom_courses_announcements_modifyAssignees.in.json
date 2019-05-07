@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to modify assignee mode and options of an announcement.",
+            "properties": {
+                "assigneeMode": {
+                    "description": "Mode of the announcement describing whether it will be accessible by all\nstudents or specified individual students.",
+                    "enum": [
+                        "ASSIGNEE_MODE_UNSPECIFIED",
+                        "ALL_STUDENTS",
+                        "INDIVIDUAL_STUDENTS"
+                    ],
+                    "type": "string"
+                },
+                "modifyIndividualStudentsOptions": {
+                    "description": "Set which students can view or cannot view the announcement.\nMust be specified only when `assigneeMode` is `INDIVIDUAL_STUDENTS`.",
+                    "properties": {
+                        "addStudentIds": {
+                            "description": "Ids of students to be added as having access to this\ncoursework/announcement.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "removeStudentIds": {
+                            "description": "Ids of students to be removed from having access to this\ncoursework/announcement.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,229 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Announcement created by a teacher for students of the course",
+            "properties": {
+                "alternateLink": {
+                    "description": "Absolute link to this announcement in the Classroom web UI.\nThis is only populated if `state` is `PUBLISHED`.\n\nRead-only.",
+                    "type": "string"
+                },
+                "assigneeMode": {
+                    "description": "Assignee mode of the announcement.\nIf unspecified, the default value is `ALL_STUDENTS`.",
+                    "enum": [
+                        "ASSIGNEE_MODE_UNSPECIFIED",
+                        "ALL_STUDENTS",
+                        "INDIVIDUAL_STUDENTS"
+                    ],
+                    "type": "string"
+                },
+                "courseId": {
+                    "description": "Identifier of the course.\n\nRead-only.",
+                    "type": "string"
+                },
+                "creationTime": {
+                    "description": "Timestamp when this announcement was created.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "creatorUserId": {
+                    "description": "Identifier for the user that created the announcement.\n\nRead-only.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Classroom-assigned identifier of this announcement, unique per course.\n\nRead-only.",
+                    "type": "string"
+                },
+                "individualStudentsOptions": {
+                    "description": "Identifiers of students with access to the announcement.\nThis field is set only if `assigneeMode` is `INDIVIDUAL_STUDENTS`.\nIf the `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students specified in this\nfield will be able to see the announcement.",
+                    "properties": {
+                        "studentIds": {
+                            "description": "Identifiers for the students that have access to the\ncoursework/announcement.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "materials": {
+                    "description": "Additional materials.\n\nAnnouncements must have no more than 20 material items.",
+                    "items": {
+                        "description": "Material attached to course work.\n\nWhen creating attachments, setting the `form` field is not supported.",
+                        "properties": {
+                            "driveFile": {
+                                "description": "Google Drive file material.",
+                                "properties": {
+                                    "driveFile": {
+                                        "description": "Drive file details.",
+                                        "properties": {
+                                            "alternateLink": {
+                                                "description": "URL that can be used to access the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "description": "Drive API resource ID.",
+                                                "type": "string"
+                                            },
+                                            "thumbnailUrl": {
+                                                "description": "URL of a thumbnail image of the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Title of the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "shareMode": {
+                                        "description": "Mechanism by which students access the Drive item.",
+                                        "enum": [
+                                            "UNKNOWN_SHARE_MODE",
+                                            "VIEW",
+                                            "EDIT",
+                                            "STUDENT_COPY"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "form": {
+                                "description": "Google Forms material.",
+                                "properties": {
+                                    "formUrl": {
+                                        "description": "URL of the form.",
+                                        "type": "string"
+                                    },
+                                    "responseUrl": {
+                                        "description": "URL of the form responses document.\nOnly set if respsonses have been recorded and only when the\nrequesting user is an editor of the form.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the Form.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the Form.\n\nRead-only.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "link": {
+                                "description": "Link material. On creation, will be upgraded to a more appropriate type\nif possible, and this will be reflected in the response.",
+                                "properties": {
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the target URL.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the target of the URL.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "description": "URL to link to.\nThis must be a valid UTF-8 string containing between 1 and 2024 characters.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "youtubeVideo": {
+                                "description": "YouTube video material.",
+                                "properties": {
+                                    "alternateLink": {
+                                        "description": "URL that can be used to view the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "description": "YouTube API resource ID.",
+                                        "type": "string"
+                                    },
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "scheduledTime": {
+                    "description": "Optional timestamp when this announcement is scheduled to be published.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Status of this announcement.\nIf unspecified, the default state is `DRAFT`.",
+                    "enum": [
+                        "ANNOUNCEMENT_STATE_UNSPECIFIED",
+                        "PUBLISHED",
+                        "DRAFT",
+                        "DELETED"
+                    ],
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Description of this announcement.\nThe text must be a valid UTF-8 string containing no more\nthan 30,000 characters.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Timestamp of the most recent change to this announcement.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

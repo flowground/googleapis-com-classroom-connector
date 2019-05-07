@@ -1,0 +1,310 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "courseWorkId": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "updateMask": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Student submission for course work.\n\nStudentSubmission items are generated when a CourseWork item is created.\n\nStudentSubmissions that have never been accessed (i.e. with `state` = NEW)\nmay not have a creation time or update time.",
+            "properties": {
+                "alternateLink": {
+                    "description": "Absolute link to the submission in the Classroom web UI.\n\nRead-only.",
+                    "type": "string"
+                },
+                "assignedGrade": {
+                    "description": "Optional grade. If unset, no grade was set.\nThis value must be non-negative. Decimal (i.e. non-integer) values are\nallowed, but will be rounded to two decimal places.\n\nThis may be modified only by course teachers.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "assignmentSubmission": {
+                    "description": "Submission content when course_work_type is ASSIGNMENT.\n\nStudents can modify this content using\ngoogle.classroom.Work.ModifyAttachments.",
+                    "properties": {
+                        "attachments": {
+                            "description": "Attachments added by the student.\nDrive files that correspond to materials with a share mode of\nSTUDENT_COPY may not exist yet if the student has not accessed the\nassignment in Classroom.\n\nSome attachment metadata is only populated if the requesting user has\npermission to access it. Identifier and alternate_link fields are always\navailable, but others (e.g. title) may not be.",
+                            "items": {
+                                "description": "Attachment added to student assignment work.\n\nWhen creating attachments, setting the `form` field is not supported.",
+                                "properties": {
+                                    "driveFile": {
+                                        "description": "Google Drive file attachment.",
+                                        "properties": {
+                                            "alternateLink": {
+                                                "description": "URL that can be used to access the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "description": "Drive API resource ID.",
+                                                "type": "string"
+                                            },
+                                            "thumbnailUrl": {
+                                                "description": "URL of a thumbnail image of the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Title of the Drive item.\n\nRead-only.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "form": {
+                                        "description": "Google Forms attachment.",
+                                        "properties": {
+                                            "formUrl": {
+                                                "description": "URL of the form.",
+                                                "type": "string"
+                                            },
+                                            "responseUrl": {
+                                                "description": "URL of the form responses document.\nOnly set if respsonses have been recorded and only when the\nrequesting user is an editor of the form.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "thumbnailUrl": {
+                                                "description": "URL of a thumbnail image of the Form.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Title of the Form.\n\nRead-only.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "link": {
+                                        "description": "Link attachment.",
+                                        "properties": {
+                                            "thumbnailUrl": {
+                                                "description": "URL of a thumbnail image of the target URL.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Title of the target of the URL.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "url": {
+                                                "description": "URL to link to.\nThis must be a valid UTF-8 string containing between 1 and 2024 characters.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "youTubeVideo": {
+                                        "description": "Youtube video attachment.",
+                                        "properties": {
+                                            "alternateLink": {
+                                                "description": "URL that can be used to view the YouTube video.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "description": "YouTube API resource ID.",
+                                                "type": "string"
+                                            },
+                                            "thumbnailUrl": {
+                                                "description": "URL of a thumbnail image of the YouTube video.\n\nRead-only.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Title of the YouTube video.\n\nRead-only.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "associatedWithDeveloper": {
+                    "description": "Whether this student submission is associated with the Developer Console\nproject making the request.\n\nSee google.classroom.Work.CreateCourseWork for more\ndetails.\n\nRead-only.",
+                    "type": "boolean"
+                },
+                "courseId": {
+                    "description": "Identifier of the course.\n\nRead-only.",
+                    "type": "string"
+                },
+                "courseWorkId": {
+                    "description": "Identifier for the course work this corresponds to.\n\nRead-only.",
+                    "type": "string"
+                },
+                "courseWorkType": {
+                    "description": "Type of course work this submission is for.\n\nRead-only.",
+                    "enum": [
+                        "COURSE_WORK_TYPE_UNSPECIFIED",
+                        "ASSIGNMENT",
+                        "SHORT_ANSWER_QUESTION",
+                        "MULTIPLE_CHOICE_QUESTION"
+                    ],
+                    "type": "string"
+                },
+                "creationTime": {
+                    "description": "Creation time of this submission.\nThis may be unset if the student has not accessed this item.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "draftGrade": {
+                    "description": "Optional pending grade. If unset, no grade was set.\nThis value must be non-negative. Decimal (i.e. non-integer) values are\nallowed, but will be rounded to two decimal places.\n\nThis is only visible to and modifiable by course teachers.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Classroom-assigned Identifier for the student submission.\nThis is unique among submissions for the relevant course work.\n\nRead-only.",
+                    "type": "string"
+                },
+                "late": {
+                    "description": "Whether this submission is late.\n\nRead-only.",
+                    "type": "boolean"
+                },
+                "multipleChoiceSubmission": {
+                    "description": "Submission content when course_work_type is MULTIPLE_CHOICE_QUESTION.",
+                    "properties": {
+                        "answer": {
+                            "description": "Student's select choice.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "shortAnswerSubmission": {
+                    "description": "Submission content when course_work_type is SHORT_ANSWER_QUESTION.",
+                    "properties": {
+                        "answer": {
+                            "description": "Student response to a short-answer question.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "state": {
+                    "description": "State of this submission.\n\nRead-only.",
+                    "enum": [
+                        "SUBMISSION_STATE_UNSPECIFIED",
+                        "NEW",
+                        "CREATED",
+                        "TURNED_IN",
+                        "RETURNED",
+                        "RECLAIMED_BY_STUDENT"
+                    ],
+                    "type": "string"
+                },
+                "submissionHistory": {
+                    "description": "The history of the submission (includes state and grade histories).\n\nRead-only.",
+                    "items": {
+                        "description": "The history of the submission. This currently includes state and grade\nhistories.",
+                        "properties": {
+                            "gradeHistory": {
+                                "description": "The grade history information of the submission, if present.",
+                                "properties": {
+                                    "actorUserId": {
+                                        "description": "The teacher who made the grade change.",
+                                        "type": "string"
+                                    },
+                                    "gradeChangeType": {
+                                        "description": "The type of grade change at this time in the submission grade history.",
+                                        "enum": [
+                                            "UNKNOWN_GRADE_CHANGE_TYPE",
+                                            "DRAFT_GRADE_POINTS_EARNED_CHANGE",
+                                            "ASSIGNED_GRADE_POINTS_EARNED_CHANGE",
+                                            "MAX_POINTS_CHANGE"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "gradeTimestamp": {
+                                        "description": "When the grade of the submission was changed.",
+                                        "format": "google-datetime",
+                                        "type": "string"
+                                    },
+                                    "maxPoints": {
+                                        "description": "The denominator of the grade at this time in the submission grade\nhistory.",
+                                        "format": "double",
+                                        "type": "number"
+                                    },
+                                    "pointsEarned": {
+                                        "description": "The numerator of the grade at this time in the submission grade history.",
+                                        "format": "double",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "stateHistory": {
+                                "description": "The state history information of the submission, if present.",
+                                "properties": {
+                                    "actorUserId": {
+                                        "description": "The teacher or student who made the change",
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "description": "The workflow pipeline stage.",
+                                        "enum": [
+                                            "STATE_UNSPECIFIED",
+                                            "CREATED",
+                                            "TURNED_IN",
+                                            "RETURNED",
+                                            "RECLAIMED_BY_STUDENT",
+                                            "STUDENT_EDITED_AFTER_TURN_IN"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "stateTimestamp": {
+                                        "description": "When the submission entered this state.",
+                                        "format": "google-datetime",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "description": "Last update time of this submission.\nThis may be unset if the student has not accessed this item.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Identifier for the student that owns this submission.\n\nRead-only.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

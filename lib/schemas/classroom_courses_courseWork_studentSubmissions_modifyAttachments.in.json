@@ -1,0 +1,142 @@
+{
+    "type": "object",
+    "properties": {
+        "courseId": {
+            "required": true,
+            "type": "string"
+        },
+        "courseWorkId": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to modify the attachments of a student submission.",
+            "properties": {
+                "addAttachments": {
+                    "description": "Attachments to add.\nA student submission may not have more than 20 attachments.\n\nForm attachments are not supported.",
+                    "items": {
+                        "description": "Attachment added to student assignment work.\n\nWhen creating attachments, setting the `form` field is not supported.",
+                        "properties": {
+                            "driveFile": {
+                                "description": "Google Drive file attachment.",
+                                "properties": {
+                                    "alternateLink": {
+                                        "description": "URL that can be used to access the Drive item.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "description": "Drive API resource ID.",
+                                        "type": "string"
+                                    },
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the Drive item.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the Drive item.\n\nRead-only.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "form": {
+                                "description": "Google Forms attachment.",
+                                "properties": {
+                                    "formUrl": {
+                                        "description": "URL of the form.",
+                                        "type": "string"
+                                    },
+                                    "responseUrl": {
+                                        "description": "URL of the form responses document.\nOnly set if respsonses have been recorded and only when the\nrequesting user is an editor of the form.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the Form.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the Form.\n\nRead-only.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "link": {
+                                "description": "Link attachment.",
+                                "properties": {
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the target URL.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the target of the URL.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "description": "URL to link to.\nThis must be a valid UTF-8 string containing between 1 and 2024 characters.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "youTubeVideo": {
+                                "description": "Youtube video attachment.",
+                                "properties": {
+                                    "alternateLink": {
+                                        "description": "URL that can be used to view the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "description": "YouTube API resource ID.",
+                                        "type": "string"
+                                    },
+                                    "thumbnailUrl": {
+                                        "description": "URL of a thumbnail image of the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the YouTube video.\n\nRead-only.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

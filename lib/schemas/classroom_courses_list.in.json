@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "courseStates": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "COURSE_STATE_UNSPECIFIED",
+                    "ACTIVE",
+                    "ARCHIVED",
+                    "PROVISIONED",
+                    "DECLINED",
+                    "SUSPENDED"
+                ],
+                "type": "string"
+            }
+        },
+        "pageSize": {
+            "type": "integer"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "studentId": {
+            "type": "string"
+        },
+        "teacherId": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        }
+    }
+}

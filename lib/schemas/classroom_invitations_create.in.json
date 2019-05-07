@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "An invitation to join a course.",
+            "properties": {
+                "courseId": {
+                    "description": "Identifier of the course to invite the user to.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Identifier assigned by Classroom.\n\nRead-only.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role to invite the user to have.\nMust not be `COURSE_ROLE_UNSPECIFIED`.",
+                    "enum": [
+                        "COURSE_ROLE_UNSPECIFIED",
+                        "STUDENT",
+                        "TEACHER",
+                        "OWNER"
+                    ],
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Identifier of the invited user.\n\nWhen specified as a parameter of a request, this identifier can be set to\none of the following:\n\n* the numeric identifier for the user\n* the email address of the user\n* the string literal `\"me\"`, indicating the requesting user",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "__xgafv": {
+            "type": "string",
+            "enum": [
+                "1",
+                "2"
+            ]
+        }
+    }
+}

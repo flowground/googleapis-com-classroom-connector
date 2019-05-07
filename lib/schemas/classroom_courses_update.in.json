@@ -1,0 +1,252 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A Course in Classroom.",
+            "properties": {
+                "alternateLink": {
+                    "description": "Absolute link to this course in the Classroom web UI.\n\nRead-only.",
+                    "type": "string"
+                },
+                "calendarId": {
+                    "description": "The Calendar ID for a calendar that all course members can see, to which\nClassroom adds events for course work and announcements in the course.\n\nRead-only.",
+                    "type": "string"
+                },
+                "courseGroupEmail": {
+                    "description": "The email address of a Google group containing all members of the course.\nThis group does not accept email and can only be used for permissions.\n\nRead-only.",
+                    "type": "string"
+                },
+                "courseMaterialSets": {
+                    "description": "Sets of materials that appear on the \"about\" page of this course.\n\nRead-only.",
+                    "items": {
+                        "description": "A set of materials that appears on the \"About\" page of the course.\nThese materials might include a syllabus, schedule, or other background\ninformation relating to the course as a whole.",
+                        "properties": {
+                            "materials": {
+                                "description": "Materials attached to this set.",
+                                "items": {
+                                    "description": "A material attached to a course as part of a material set.",
+                                    "properties": {
+                                        "driveFile": {
+                                            "description": "Google Drive file attachment.",
+                                            "properties": {
+                                                "alternateLink": {
+                                                    "description": "URL that can be used to access the Drive item.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "description": "Drive API resource ID.",
+                                                    "type": "string"
+                                                },
+                                                "thumbnailUrl": {
+                                                    "description": "URL of a thumbnail image of the Drive item.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "Title of the Drive item.\n\nRead-only.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "form": {
+                                            "description": "Google Forms attachment.",
+                                            "properties": {
+                                                "formUrl": {
+                                                    "description": "URL of the form.",
+                                                    "type": "string"
+                                                },
+                                                "responseUrl": {
+                                                    "description": "URL of the form responses document.\nOnly set if respsonses have been recorded and only when the\nrequesting user is an editor of the form.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "thumbnailUrl": {
+                                                    "description": "URL of a thumbnail image of the Form.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "Title of the Form.\n\nRead-only.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "link": {
+                                            "description": "Link atatchment.",
+                                            "properties": {
+                                                "thumbnailUrl": {
+                                                    "description": "URL of a thumbnail image of the target URL.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "Title of the target of the URL.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "url": {
+                                                    "description": "URL to link to.\nThis must be a valid UTF-8 string containing between 1 and 2024 characters.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "youTubeVideo": {
+                                            "description": "Youtube video attachment.",
+                                            "properties": {
+                                                "alternateLink": {
+                                                    "description": "URL that can be used to view the YouTube video.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "description": "YouTube API resource ID.",
+                                                    "type": "string"
+                                                },
+                                                "thumbnailUrl": {
+                                                    "description": "URL of a thumbnail image of the YouTube video.\n\nRead-only.",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "Title of the YouTube video.\n\nRead-only.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "title": {
+                                "description": "Title for this set.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "courseState": {
+                    "description": "State of the course.\nIf unspecified, the default state is `PROVISIONED`.",
+                    "enum": [
+                        "COURSE_STATE_UNSPECIFIED",
+                        "ACTIVE",
+                        "ARCHIVED",
+                        "PROVISIONED",
+                        "DECLINED",
+                        "SUSPENDED"
+                    ],
+                    "type": "string"
+                },
+                "creationTime": {
+                    "description": "Creation time of the course.\nSpecifying this field in a course update mask results in an error.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Optional description.\nFor example, \"We'll be learning about the structure of living\ncreatures from a combination of textbooks, guest lectures, and lab work.\nExpect to be excited!\"\nIf set, this field must be a valid UTF-8 string and no longer than 30,000\ncharacters.",
+                    "type": "string"
+                },
+                "descriptionHeading": {
+                    "description": "Optional heading for the description.\nFor example, \"Welcome to 10th Grade Biology.\"\nIf set, this field must be a valid UTF-8 string and no longer than 3600\ncharacters.",
+                    "type": "string"
+                },
+                "enrollmentCode": {
+                    "description": "Enrollment code to use when joining this course.\nSpecifying this field in a course update mask results in an error.\n\nRead-only.",
+                    "type": "string"
+                },
+                "guardiansEnabled": {
+                    "description": "Whether or not guardian notifications are enabled for this course.\n\nRead-only.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Identifier for this course assigned by Classroom.\n\nWhen\ncreating a course,\nyou may optionally set this identifier to an\nalias string in the\nrequest to create a corresponding alias. The `id` is still assigned by\nClassroom and cannot be updated after the course is created.\n\nSpecifying this field in a course update mask results in an error.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the course.\nFor example, \"10th Grade Biology\".\nThe name is required. It must be between 1 and 750 characters and a valid\nUTF-8 string.",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "The identifier of the owner of a course.\n\nWhen specified as a parameter of a\ncreate course request, this\nfield is required.\nThe identifier can be one of the following:\n\n* the numeric identifier for the user\n* the email address of the user\n* the string literal `\"me\"`, indicating the requesting user\n\nThis must be set in a create request. Admins can also specify this field\nin a patch course request to\ntransfer ownership. In other contexts, it is read-only.",
+                    "type": "string"
+                },
+                "room": {
+                    "description": "Optional room location.\nFor example, \"301\".\nIf set, this field must be a valid UTF-8 string and no longer than 650\ncharacters.",
+                    "type": "string"
+                },
+                "section": {
+                    "description": "Section of the course.\nFor example, \"Period 2\".\nIf set, this field must be a valid UTF-8 string and no longer than 2800\ncharacters.",
+                    "type": "string"
+                },
+                "teacherFolder": {
+                    "description": "Information about a Drive Folder that is shared with all teachers of the\ncourse.\n\nThis field will only be set for teachers of the course and domain administrators.\n\nRead-only.",
+                    "properties": {
+                        "alternateLink": {
+                            "description": "URL that can be used to access the Drive folder.\n\nRead-only.",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "Drive API resource ID.",
+                            "type": "string"
+                        },
+                        "title": {
+                            "description": "Title of the Drive folder.\n\nRead-only.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "teacherGroupEmail": {
+                    "description": "The email address of a Google group containing all teachers of the course.\nThis group does not accept email and can only be used for permissions.\n\nRead-only.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Time of the most recent update to this course.\nSpecifying this field in a course update mask results in an error.\n\nRead-only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

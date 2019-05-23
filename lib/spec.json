@@ -18754,7 +18754,7 @@
                 "description": "Oauth 2.0 authentication",
                 "type": "oauth2",
                 "flows": {
-                    "implicit": {
+                    "authorizationCode": {
                         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
                         "scopes": {
                             "https://www.googleapis.com/auth/classroom.announcements": "View and manage announcements in Google Classroom",
@@ -18775,7 +18775,8 @@
                             "https://www.googleapis.com/auth/classroom.rosters.readonly": "View your Google Classroom class rosters",
                             "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly": "View your course work and grades in Google Classroom",
                             "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
-                        }
+                        },
+                        "tokenUrl": "https://www.googleapis.com/oauth2/v4/token"
                     }
                 }
             }
